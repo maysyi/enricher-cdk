@@ -1,0 +1,7 @@
+PyYAML
+click
+click-default-group
+python-slugify
+boto3
+playwright
+shot-scraper

@@ -1,0 +1,15 @@
+FROM ubuntu
+
+RUN apt update -y && \
+    apt install -y python3 pip nodejs && \
+    apt clean all
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt --break-system-packages
+
+RUN playwright install-deps
+RUN shot-scraper install
+
+COPY function.py .
+ENTRYPOINT [ "python3" ]
+CMD [ "function.py" ]
